@@ -12,7 +12,8 @@ const getIdToken = (headers) => {
 
 const getResponseHeaders = () => {
     return {
-        'Access-Control-Allow-Origin': '*'
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Origin-Headers': '*'
     }
 }
 
