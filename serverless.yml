@@ -34,7 +34,7 @@ provider:
   endpointType: regional 
   environment: 
     NOTES_TABLE: ${self:service}-${opt:stage, self:provider.stage}
-    COGNITO_IDENTITY_POOL_ID: eu-west-2:5df6763e-505c-4752-8630-ea0e528c5c22
+    COGNITO_IDENTITY_POOL_ID: us-east-2:65c3b692-bfca-461b-b99e-16effac71bcd
   iamRoleStatements:
     - Effect: Allow
       Action: 
