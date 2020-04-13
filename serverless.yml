@@ -45,17 +45,16 @@ provider:
 
 functions:
   authenticate-google:
-    handler: api/authenticate-google
-    description: Google ID Authentication 
-    events: 
+    handler: api/authenticate-google.handler
+    description: Google IDP Authentication
+    events:
       - http:
           path: auth
           method: get
-          authorizer: aws_iam
           cors:
             origin: '*'
             headers: ${self:custom.allowedHeaders}
-
+            
   add-note:
     handler: api/add-note.handler
     description: POST /note
@@ -151,12 +150,12 @@ resources:
               WriteCapacityUnits: 1
 
 
-GatewayResponseDefault4XX:
-  Type: AWS::ApiGateway::GatewayResponse
-  Properties:
-    ResponseParameters:
-      gatewayresponse.header.Access-Control-Allow-Origin: "'*'"
-      gatewayresponse.header.Access-Control-Allow-Origin-Headers: "'*'"
-      ResponseType: DEFAULT_4XX
-      RestApiId:
-        Ref: ' ApiGatewayRestApi'
+GatewayResponseDefault4XX: ## YOU CAN ADD SIMILAR SECTION FOR 5XX ERRORS IF DESIRED
+      Type: AWS::ApiGateway::GatewayResponse
+      Properties:
+        ResponseParameters:
+          gatewayresponse.header.Access-Control-Allow-Origin: "'*'"
+          gatewayresponse.header.Access-Control-Allow-Headers: "'*'"
+        ResponseType: DEFAULT_4XX
+        RestApiId:
+          Ref: 'ApiGatewayRestApi'
