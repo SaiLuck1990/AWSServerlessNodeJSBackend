@@ -12,11 +12,6 @@ sls deploy
 npm init -y
 npm install --save aws-sdk moment underscore uuid
 
-##  Git credentials generated for this project 
-
-test-user-3+1-at-352626728021 - username 
-ubRF0pu7EEr1XKc7AT6S+dumRDS2QhIpcSeIMApEIv4= - password
-
 ## For testing locally of the serverless solution
 npm install --save serverless-offline
 
